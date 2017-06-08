@@ -1,0 +1,5 @@
+entity.performance_budget.add_form:
+  route_name: 'entity.performance_budget.add_form'
+  title: 'Add Budget'
+  appears_on:
+    - entity.performance_budget.collection

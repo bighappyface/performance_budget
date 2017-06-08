@@ -1,0 +1,6 @@
+name: Performance Budget
+type: module
+description: 'A system for creating and reporting on performance budgets'
+package: Performance
+configure: entity.performance_budget.collection
+core: 8.x

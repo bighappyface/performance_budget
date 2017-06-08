@@ -1,0 +1,31 @@
+entity.performance_budget.collection:
+  path: 'admin/config/development/performance-budget'
+  defaults:
+    _entity_list: 'performance_budget'
+    _title: 'Performance Budget'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.performance_budget.add_form:
+  path: 'admin/config/development/performance-budget/add'
+  defaults:
+    _entity_form: 'performance_budget.add'
+    _title: 'Add Budget'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.performance_budget.edit_form:
+  path: 'admin/config/development/performance-budget/{performance_budget}'
+  defaults:
+    _entity_form: 'performance_budget.edit'
+    _title: 'Edit Budget'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.performance_budget.delete_form:
+  path: 'admin/config/development/performance-budget/{performance_budget}/delete'
+  defaults:
+    _entity_form: 'performance_budget.delete'
+    _title: 'Delete Budget'
+  requirements:
+    _permission: 'administer site configuration'

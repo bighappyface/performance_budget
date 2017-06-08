@@ -1,0 +1,5 @@
+entity.performance_budget.collection:
+  title: Performance Budget
+  parent: system.admin_config_development
+  description: 'Settings for Performance Budgets'
+  route_name: entity.performance_budget.collection
