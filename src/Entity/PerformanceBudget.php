@@ -20,7 +20,7 @@ use Drupal\performance_budget\PerformanceBudgetInterface;
  *     }
  *   },
  *   config_prefix = "performance_budget",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer performance budget",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
