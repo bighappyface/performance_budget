@@ -26,8 +26,6 @@ class PerformanceBudgetListBuilder extends ConfigEntityListBuilder {
     $row['label'] = $this->getLabel($entity);
     $row['id'] = $entity->id();
 
-    // You probably want a few more properties here...
-
     return $row + parent::buildRow($entity);
   }
 

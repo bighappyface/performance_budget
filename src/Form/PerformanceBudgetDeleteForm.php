@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Builds the form to delete a performance budget.
  */
-
 class PerformanceBudgetDeleteForm extends EntityConfirmFormBase {
 
   /**
@@ -42,4 +41,5 @@ class PerformanceBudgetDeleteForm extends EntityConfirmFormBase {
 
     $form_state->setRedirectUrl($this->getCancelUrl());
   }
+
 }

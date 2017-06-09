@@ -12,8 +12,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Form handler for the Performance Budget add and edit forms.
  */
 class PerformanceBudgetForm extends EntityForm {
+
   /**
-   * Constructs a PerformanceBudgetForm
+   * Constructs a PerformanceBudgetForm.
    *
    * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
    *   The entity manager service.
@@ -85,7 +86,7 @@ class PerformanceBudgetForm extends EntityForm {
   }
 
   /**
-   * Helper function to check whether an PerformanceBudget configuration entity exists.
+   * Helper function to check whether a PerformanceBudget entity exists.
    */
   public function exist($id) {
     $entity = $this->entityQuery->get('performance_budget')
