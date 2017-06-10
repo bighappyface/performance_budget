@@ -1,0 +1,17 @@
+{
+    "name": "drupal/performance_budget",
+    "description": "Create and configure performance budgets using various plugins and providers.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "homepage": "http://drupal.org/project/performance_budget",
+    "authors": [
+        {
+            "name": "bighappyface",
+            "email": "anomalous20@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "mtdowling/cron-expression": "1.2.0"
+    }
+}
