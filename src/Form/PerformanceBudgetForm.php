@@ -14,26 +14,25 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class PerformanceBudgetForm extends EntityForm {
 
   /**
+   * @var \Drupal\Core\Entity\Query\QueryFactory
+   */
+  protected $entityQueryFactory;
+
+  /**
    * Constructs a PerformanceBudgetForm.
    *
-   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
-   *   The entity manager service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
+   * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
    *   The entity query.
    */
-  public function __construct(EntityManagerInterface $entity_manager, QueryFactory $entity_query) {
-    $this->entityManager = $entity_manager;
-    $this->entityQuery = $entity_query;
+  public function __construct(QueryFactory $query_factory) {
+    $this->entityQueryFactory = $query_factory;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('entity.manager'),
-      $container->get('entity.query')
-    );
+    return new static($container->get('entity.query'));
   }
 
   /**
@@ -48,15 +47,23 @@ class PerformanceBudgetForm extends EntityForm {
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
-      '#default_value' => $performance_budget->label(),
-      '#description' => $this->t("Label for the performance budget."),
+      '#default_value' => $performance_budget->label,
+      '#description' => $this->t('Label for the performance budget.'),
+      '#required' => TRUE,
+    ];
+    $form['schedule'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Schedule'),
+      '#maxlength' => 255,
+      '#default_value' => $performance_budget->schedule,
+      '#description' => $this->t('Schedule for the performance budget. Uses CRON expressions - https://en.wikipedia.org/wiki/Cron#CRON_expression'),
       '#required' => TRUE,
     ];
     $form['id'] = [
       '#type' => 'machine_name',
-      '#default_value' => $performance_budget->id(),
+      '#default_value' => $performance_budget->id,
       '#machine_name' => [
-        'exists' => [$this, 'exist'],
+        'exists' => [$this, 'exists'],
       ],
       '#disabled' => !$performance_budget->isNew(),
     ];
@@ -84,15 +91,29 @@ class PerformanceBudgetForm extends EntityForm {
 
     $form_state->setRedirect('entity.performance_budget.collection');
   }
-
   /**
-   * Helper function to check whether a PerformanceBudget entity exists.
+   * Checks for an existing robot.
+   *
+   * @param string|int $entity_id
+   *   The entity ID.
+   * @param array $element
+   *   The form element.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   *
+   * @return bool
+   *   TRUE if this format already exists, FALSE otherwise.
    */
-  public function exist($id) {
-    $entity = $this->entityQuery->get('performance_budget')
-      ->condition('id', $id)
+  public function exists($entity_id, array $element, FormStateInterface $form_state) {
+    // Use the query factory to build a new robot entity query.
+    $query = $this->entityQueryFactory->get('performance_budget');
+
+    // Query the entity ID to see if its in use.
+    $result = $query->condition('id', $element['#field_prefix'] . $entity_id)
       ->execute();
-    return (bool) $entity;
+
+    // We don't need to return the ID, only if it exists or not.
+    return (bool) $result;
   }
 
 }

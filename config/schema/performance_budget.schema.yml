@@ -8,3 +8,6 @@ performance_budget.performance_budget.*:
     label:
       type: label
       label: 'Label'
+    schedule:
+      type: string
+      label: 'Schedule'

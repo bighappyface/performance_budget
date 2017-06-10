@@ -47,6 +47,11 @@ class PerformanceBudget extends ConfigEntityBase implements PerformanceBudgetInt
    */
   public $label;
 
-  // Your specific configuration property get/set methods go here,
-  // implementing the interface.
+  /**
+   * The Performance Budget schedule.
+   *
+   * @var string
+   */
+  public $schedule;
+
 }

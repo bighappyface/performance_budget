@@ -57,10 +57,22 @@ class PerformanceBudgetEntityTest extends BrowserTestBase {
       [
         'label' => 'Test Budget',
         'id' => 'test_budget',
+        'schedule' => '0 * * * *',
       ],
       t('Save')
     );
     $assert->pageTextContains('The Test Budget performance budget was created.');
+    // Verify form will not accept invalid CRON expression.
+    // $this->drupalGet('admin/config/development/performance-budget/add');
+    // $this->drupalPostForm(
+    //   NULL,
+    //   [
+    //     'label' => 'Test Budget',
+    //     'schedule' => 'foobar',
+    //   ],
+    //   t('Save')
+    // );
+    // $assert->pageTextContains('Schedule field is required.');
   }
 
 }
