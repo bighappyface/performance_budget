@@ -44,22 +44,22 @@ class PerformanceBudgetForm extends EntityForm {
 
     $performance_budget = $this->entity;
 
-    $form['label'] = array(
+    $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $performance_budget->label(),
       '#description' => $this->t("Label for the performance budget."),
       '#required' => TRUE,
-    );
-    $form['id'] = array(
+    ];
+    $form['id'] = [
       '#type' => 'machine_name',
       '#default_value' => $performance_budget->id(),
-      '#machine_name' => array(
-        'exists' => array($this, 'exist'),
-      ),
+      '#machine_name' => [
+        'exists' => [$this, 'exist'],
+      ],
       '#disabled' => !$performance_budget->isNew(),
-    );
+    ];
 
     return $form;
   }
@@ -72,14 +72,14 @@ class PerformanceBudgetForm extends EntityForm {
     $status = $performance_budget->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label performance budget.', array(
+      drupal_set_message($this->t('The %label performance budget was created.', [
         '%label' => $performance_budget->label(),
-      )));
+      ]));
     }
     else {
-      drupal_set_message($this->t('The %label performance budget was not saved.', array(
+      drupal_set_message($this->t('The %label performance budget was not saved.', [
         '%label' => $performance_budget->label(),
-      )));
+      ]));
     }
 
     $form_state->setRedirect('entity.performance_budget.collection');
