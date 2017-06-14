@@ -12,7 +12,7 @@ entity.performance_budget.add_form:
     _entity_form: 'performance_budget.add'
     _title: 'Add Budget'
   requirements:
-    _permission: 'administer performance budget'
+    _entity_create_access: 'performance_budget'
 
 entity.performance_budget.edit_form:
   path: 'admin/config/development/performance-budget/{performance_budget}'
@@ -20,7 +20,7 @@ entity.performance_budget.edit_form:
     _entity_form: 'performance_budget.edit'
     _title: 'Edit Budget'
   requirements:
-    _permission: 'administer performance budget'
+    _entity_access: 'performance_budget.update'
 
 entity.performance_budget.delete_form:
   path: 'admin/config/development/performance-budget/{performance_budget}/delete'
@@ -28,4 +28,22 @@ entity.performance_budget.delete_form:
     _entity_form: 'performance_budget.delete'
     _title: 'Delete Budget'
   requirements:
-    _permission: 'administer performance budget'
+    _entity_access: 'performance_budget.delete'
+
+entity.performance_budget.enable:
+  path: 'admin/config/development/performance-budget/{performance_budget}/enable'
+  defaults:
+    _controller: '\Drupal\performance_budget\Controller\PerformanceBudgetController::performOperation'
+    op: enable
+  requirements:
+    _entity_access: 'performance_budget.update'
+    _csrf_token: 'TRUE'
+
+entity.performance_budget.disable:
+  path: 'admin/config/development/performance-budget/{performance_budget}/disable'
+  defaults:
+    _controller: '\Drupal\performance_budget\Controller\PerformanceBudgetController::performOperation'
+    op: disable
+  requirements:
+    _entity_access: 'performance_budget.disable'
+    _csrf_token: 'TRUE'
