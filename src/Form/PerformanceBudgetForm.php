@@ -51,14 +51,14 @@ class PerformanceBudgetForm extends EntityForm {
       '#description' => $this->t('Label for the performance budget.'),
       '#required' => TRUE,
     ];
-    $form['schedule'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Schedule'),
-      '#maxlength' => 255,
-      '#default_value' => $performance_budget->schedule,
-      '#description' => $this->t('Schedule for the performance budget. Uses CRON expressions - https://en.wikipedia.org/wiki/Cron#CRON_expression'),
-      '#required' => TRUE,
-    ];
+    // $form['schedule'] = [
+    //   '#type' => 'textfield',
+    //   '#title' => $this->t('Schedule'),
+    //   '#maxlength' => 255,
+    //   '#default_value' => $performance_budget->schedule,
+    //   '#description' => $this->t('Schedule for the performance budget. Uses CRON expressions - https://en.wikipedia.org/wiki/Cron#CRON_expression'),
+    //   '#required' => TRUE,
+    // ];
     $form['id'] = [
       '#type' => 'machine_name',
       '#default_value' => $performance_budget->id,
@@ -79,7 +79,7 @@ class PerformanceBudgetForm extends EntityForm {
     $status = $performance_budget->save();
 
     if ($status) {
-      drupal_set_message($this->t('The %label performance budget was created.', [
+      drupal_set_message($this->t('The %label performance budget was saved.', [
         '%label' => $performance_budget->label(),
       ]));
     }
