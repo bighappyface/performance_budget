@@ -32,6 +32,7 @@ use Drupal\performance_budget\PerformanceBudgetInterface;
  *     "delete-form" = "/admin/config/development/performance-budget/{performance_budget}/delete",
  *     "enable" = "/admin/config/development/performance-budget/{performance_budget}/enable",
  *     "disable" = "/admin/config/development/performance-budget/{performance_budget}/disable",
+ *     "collection" = "/admin/config/development/performance-budget",
  *   },
  *   config_export = {
  *     "id",
