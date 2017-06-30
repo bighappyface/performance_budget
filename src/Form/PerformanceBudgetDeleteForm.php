@@ -3,11 +3,11 @@
 namespace Drupal\performance_budget\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
- * Builds the form to delete a performance budget.
+ * Builds the form to delete Performance Budget entities.
  */
 class PerformanceBudgetDeleteForm extends EntityConfirmFormBase {
 
@@ -15,7 +15,7 @@ class PerformanceBudgetDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete %name?', array('%name' => $this->entity->label()));
+    return $this->t('Are you sure you want to delete %name?', ['%name' => $this->entity->label()]);
   }
 
   /**
@@ -37,7 +37,14 @@ class PerformanceBudgetDeleteForm extends EntityConfirmFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->entity->delete();
-    drupal_set_message($this->t('Performance budget %label has been deleted.', array('%label' => $this->entity->label())));
+
+    drupal_set_message(
+      $this->t('Deleted the %label Performance Budget.',
+        [
+          '%label' => $this->entity->label(),
+        ]
+      )
+    );
 
     $form_state->setRedirectUrl($this->getCancelUrl());
   }

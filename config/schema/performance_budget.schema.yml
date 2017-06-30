@@ -8,6 +8,5 @@ performance_budget.performance_budget.*:
     label:
       type: label
       label: 'Label'
-    schedule:
+    uuid:
       type: string
-      label: 'Schedule'

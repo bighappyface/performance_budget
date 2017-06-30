@@ -3,7 +3,6 @@
 namespace Drupal\performance_budget\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\performance_budget\PerformanceBudgetInterface;
 
 /**
  * Defines the Performance Budget entity.
@@ -12,33 +11,31 @@ use Drupal\performance_budget\PerformanceBudgetInterface;
  *   id = "performance_budget",
  *   label = @Translation("Performance Budget"),
  *   handlers = {
- *     "access" = "Drupal\performance_budget\PerformanceBudgetAccessController",
- *     "list_builder" = "Drupal\performance_budget\Controller\PerformanceBudgetListBuilder",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "list_builder" = "Drupal\performance_budget\PerformanceBudgetListBuilder",
  *     "form" = {
  *       "add" = "Drupal\performance_budget\Form\PerformanceBudgetForm",
  *       "edit" = "Drupal\performance_budget\Form\PerformanceBudgetForm",
- *       "delete" = "Drupal\performance_budget\Form\PerformanceBudgetDeleteForm",
- *     }
+ *       "delete" = "Drupal\performance_budget\Form\PerformanceBudgetDeleteForm"
+ *     },
+ *     "route_provider" = {
+ *       "html" = "Drupal\performance_budget\PerformanceBudgetHtmlRouteProvider",
+ *     },
  *   },
  *   config_prefix = "performance_budget",
  *   admin_permission = "administer performance budget",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
- *     "status" = "status",
+ *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "edit-form" = "/admin/config/development/performance-budget/{performance_budget}",
- *     "delete-form" = "/admin/config/development/performance-budget/{performance_budget}/delete",
- *     "enable" = "/admin/config/development/performance-budget/{performance_budget}/enable",
- *     "disable" = "/admin/config/development/performance-budget/{performance_budget}/disable",
- *     "collection" = "/admin/config/development/performance-budget",
- *   },
- *   config_export = {
- *     "id",
- *     "label",
- *     "schedule",
- *   },
+ *     "canonical" = "/admin/config/development/performance_budget/{performance_budget}",
+ *     "add-form" = "/admin/config/development/performance_budget/add",
+ *     "edit-form" = "/admin/config/development/performance_budget/{performance_budget}/edit",
+ *     "delete-form" = "/admin/config/development/performance_budget/{performance_budget}/delete",
+ *     "collection" = "/admin/config/development/performance_budget"
+ *   }
  * )
  */
 class PerformanceBudget extends ConfigEntityBase implements PerformanceBudgetInterface {
@@ -48,20 +45,13 @@ class PerformanceBudget extends ConfigEntityBase implements PerformanceBudgetInt
    *
    * @var string
    */
-  public $id;
+  protected $id;
 
   /**
    * The Performance Budget label.
    *
    * @var string
    */
-  public $label;
-
-  /**
-   * The Performance Budget schedule.
-   *
-   * @var string
-   */
-  public $schedule;
+  protected $label;
 
 }
