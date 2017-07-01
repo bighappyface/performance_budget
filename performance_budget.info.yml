@@ -1,6 +1,6 @@
 name: Performance Budget
 type: module
-description: 'A system for creating and reporting on performance budgets'
+description: 'Create and configure performance budgets using various plugins and providers.'
 package: Performance
 configure: entity.performance_budget.collection
 core: 8.x

@@ -1,9 +1,6 @@
-
-# Performance Budget menu items definition
 entity.performance_budget.collection:
   title: 'Performance Budget'
   route_name: entity.performance_budget.collection
-  description: 'List Performance Budget (bundles)'
-  parent: system.admin_structure
+  description: 'Manage and report on your Performance Budget'
+  parent: system.admin_reports
   weight: 99
-
