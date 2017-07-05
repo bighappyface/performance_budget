@@ -30,11 +30,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/reports/performance_budget/{performance_budget}",
- *     "add-form" = "/admin/reports/performance_budget/add",
- *     "edit-form" = "/admin/reports/performance_budget/{performance_budget}/edit",
- *     "delete-form" = "/admin/reports/performance_budget/{performance_budget}/delete",
- *     "collection" = "/admin/reports/performance_budget"
+ *     "canonical" = "/admin/reports/performance-budget/{performance_budget}",
+ *     "add-form" = "/admin/reports/performance-budget/add",
+ *     "edit-form" = "/admin/reports/performance-budget/{performance_budget}/edit",
+ *     "delete-form" = "/admin/reports/performance-budget/{performance_budget}/delete",
+ *     "collection" = "/admin/reports/performance-budget"
  *   }
  * )
  */

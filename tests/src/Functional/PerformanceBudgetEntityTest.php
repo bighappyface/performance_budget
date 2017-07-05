@@ -49,10 +49,10 @@ class PerformanceBudgetEntityTest extends BrowserTestBase {
     $this->drupalLogin($this->user);
 
     // Verify list exists with add button.
-    $this->drupalGet('admin/reports/performance_budget');
-    $this->assertLinkByHref('/admin/reports/performance_budget/add');
+    $this->drupalGet('admin/reports/performance-budget');
+    $this->assertLinkByHref('/admin/reports/performance-budget/add');
     // Add an entity using the entity form.
-    $this->drupalGet('/admin/reports/performance_budget/add');
+    $this->drupalGet('/admin/reports/performance-budget/add');
     $this->drupalPostForm(
       NULL,
       [
@@ -65,11 +65,11 @@ class PerformanceBudgetEntityTest extends BrowserTestBase {
 
     // Verify entity edit, disable, and delete buttons are present.
     // This is to ensure the entity config is correct for user operations.
-    $this->assertLinkByHref('/admin/reports/performance_budget/test_budget/edit');
-    $this->assertLinkByHref('/admin/reports/performance_budget/test_budget/delete');
+    $this->assertLinkByHref('/admin/reports/performance-budget/test_budget/edit');
+    $this->assertLinkByHref('/admin/reports/performance-budget/test_budget/delete');
 
     // Update the new entity using the entity form.
-    $this->drupalGet('/admin/reports/performance_budget/test_budget/edit');
+    $this->drupalGet('/admin/reports/performance-budget/test_budget/edit');
     $this->drupalPostForm(
       NULL,
       [
