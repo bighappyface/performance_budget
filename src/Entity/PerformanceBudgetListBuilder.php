@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\performance_budget;
+namespace Drupal\performance_budget\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;

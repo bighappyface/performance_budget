@@ -3,4 +3,3 @@ entity.performance_budget.add_form:
   title: 'Add Performance Budget'
   appears_on:
     - entity.performance_budget.collection
-

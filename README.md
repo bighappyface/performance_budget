@@ -4,9 +4,11 @@ Create and configure performance budgets using various plugins and providers.
 
 ## Instructions
 
-Unpack in the *modules* folder (currently in the root of your Drupal 8 installation) and enable in `/admin/modules`.
+Unpack in the *modules* folder (currently in the root of your Drupal 8
+  installation) and enable in `/admin/modules`.
 
-Then, visit `/admin/reports/performance-budget` to create and configure performance budgets for your needs.
+Then, visit `/admin/reports/performance-budget` to create and configure
+performance budgets for your needs.
 
 ## Contributing
 
