@@ -1,0 +1,8 @@
+services:
+  plugin.manager.assessment_utility:
+    class: Drupal\performance_budget\Plugin\AssessmentUtilityManager
+    parent: default_plugin_manager
+  performance_budget:
+    class: Drupal\performance_budget\ParamConverter\PerformanceBudgetParamConverter
+    tags:
+      - { name: paramconverter }

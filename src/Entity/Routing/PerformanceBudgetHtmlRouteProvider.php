@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\performance_budget;
+namespace Drupal\performance_budget\Entity\Routing;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
