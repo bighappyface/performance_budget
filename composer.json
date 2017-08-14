@@ -12,6 +12,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "mtdowling/cron-expression": "1.2.0"
+        "widgetsburritos/webpagetest": "1.0.3"
     }
 }

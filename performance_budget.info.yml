@@ -4,3 +4,5 @@ description: 'Create and configure performance budgets using various plugins and
 package: Performance
 configure: entity.performance_budget.collection
 core: 8.x
+dependencies:
+  - web_page_archive
