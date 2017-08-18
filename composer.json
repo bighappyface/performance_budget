@@ -13,5 +13,13 @@
     "minimum-stability": "dev",
     "require": {
         "widgetsburritos/webpagetest": "1.0.3"
+    },
+    "require-dev": {
+        "drupal/coder": "8.2.*"
+    },
+    "scripts": {
+        "phpcs": [
+          "vendor/bin/phpcs --standard=vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml src/"
+        ]
     }
 }
