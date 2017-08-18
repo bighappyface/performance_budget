@@ -61,12 +61,12 @@ class WebPageTestCaptureUtility extends ConfigurableCaptureUtilityBase {
             $this->response = new UriCaptureResponse($file_location, $data['url']);
           }
           else {
-            throw new \Exception($this->t("wpt test $test_id failed"));
+            throw new \Exception($this->t('WPT test @test_id failed - Could not retrieve test results', ['@test_id' => $test_id]));
           }
           // Cleanup old state key.
           $this->state()->delete($state_key);
         }
-        else if (in_array($response->statusCode, [100, 101, 102])) {
+        elseif (in_array($response->statusCode, [100, 101, 102])) {
           // Test is still running.
           $this->response = NULL;
         }
@@ -76,7 +76,7 @@ class WebPageTestCaptureUtility extends ConfigurableCaptureUtilityBase {
             '@test_id' => $test_id,
             '@http_code' => $response->statusCode,
           ];
-          throw new \Exception($this->t("WPT test @test_id failed - HTTP status code: @http_code", $strings));
+          throw new \Exception($this->t('WPT test @test_id failed - HTTP status code: @http_code', $strings));
         }
       }
     }
@@ -94,9 +94,9 @@ class WebPageTestCaptureUtility extends ConfigurableCaptureUtilityBase {
   /**
    * Retrieves unique state key for data array.
    */
-   private function state() {
-     return \Drupal::state();
-   }
+  private function state() {
+    return \Drupal::state();
+  }
 
   /**
    * {@inheritdoc}
