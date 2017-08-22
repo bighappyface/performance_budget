@@ -1,59 +1,7 @@
-performance_budget.performance_budget.*:
-  type: config_entity
-  label: 'Performance Budget config'
+web_page_archive.capture_utility.pb_wpt_capture:
+  type: mapping
+  label: 'Web page test capture utility'
   mapping:
-    id:
+    wpt_api:
       type: string
-      label: 'ID'
-    label:
-      type: label
-      label: 'Label'
-    uuid:
-      type: string
-    cron_schedule:
-      type: string
-      label: 'Cron Schedule'
-    assessment_utilities:
-      type: sequence
-      sequence:
-        type: mapping
-        mapping:
-          uuid:
-            type: string
-          id:
-            type: string
-    assessments:
-      type: sequence
-      sequence:
-        type: mapping
-        mapping:
-          uuid:
-            type: string
-          status:
-            type: string
-            label: 'Status'
-          timestamp:
-            type: string
-            label: 'Timestamp'
-          queue_ct:
-            type: integer
-            label: 'Queue Ct'
-          captures:
-            type: sequence
-            sequence:
-              type: mapping
-              mapping:
-                uuid:
-                  type: string
-                status:
-                  type: string
-                  label: 'Status'
-                timestamp:
-                  type: string
-                  label: 'Timestamp'
-                capture_type:
-                  type: string
-                  label: 'Capture Type'
-                content:
-                  type: string
-                  label: 'Capture Content'
+      label: 'webpagetest.org API Key'
